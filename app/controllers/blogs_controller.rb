@@ -1,6 +1,6 @@
 class BlogsController < ApplicationController
-  before_action :require_login, only: [:new, :create, :edit, :update, :destroy]
-  before_action :set_blog, only: [:show, :edit, :update, :destroy]
+  before_action :require_login, only: [:new, :create, :edit, :show, :update, :destroy]
+  before_action :set_blog, only: [:edit, :update, :destroy]
 
   def show
   end
@@ -44,6 +44,7 @@ class BlogsController < ApplicationController
   end
 
   private
+
   def blog_params
     params.require(:blog).permit(:title, :content)
   end
